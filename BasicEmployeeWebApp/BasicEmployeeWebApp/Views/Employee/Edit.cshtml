@@ -1,0 +1,23 @@
+﻿@using BasicEmployeeWebApp.Models.ViewModels;
+@model EmployeeViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form method="Post" action="~/Employee/Edit" class="col-md-12">
+    <input type="hidden" class="form-control" name="Id" value="@Model.Employee.Id" hidden>
+    <input type="text" class="form-control" name="Name" value="@Model.Employee.Name">
+    <input type="number" class="form-control" name="Salary" value="@Model.Employee.Salary">
+    <input type="date" class="form-control" name="Birthdate" value="@Model.Employee.Birthdate.ToString("yyyy-MM-dd")">
+    <input type="date" class="form-control" name="HireDate" value="@Model.Employee.HireDate.ToString("yyyy-MM-dd")">
+    <select class="form-control" name="Type.Id">
+        @foreach (var item in Model.EmployeeTypes)
+        {
+            <option value="@item.Id" @(@Model.Employee.Type.Id == @item.Id ? "selected" : "" )>@item.Name</option>
+        }
+    </select>
+    <button type="submit" class="btn btn-default"> Update</button>
+</form>

@@ -1,0 +1,17 @@
+﻿@using BasicEmployeeWebApp.Models;
+
+@model EmployeeType
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form method="Post" action="~/EmployeeType/Edit" class="col-md-12">
+    <input type="hidden" class="form-control" name="Id" value="@Model.Id" hidden>
+    <input type="text" class="form-control" name="Name" value="@Model.Name">
+    <button type="submit" class="btn btn-default"> Update</button>
+</form>
+
+

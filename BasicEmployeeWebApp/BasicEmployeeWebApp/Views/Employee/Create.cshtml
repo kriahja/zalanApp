@@ -1,0 +1,50 @@
+﻿@using BasicEmployeeWebApp.Models.ViewModels;
+
+@model  EmployeeViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Employee</h2>
+
+<form method="Post" action="~/Employee/Create" class="col-md-12">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="Name">
+    </div>
+    <div class="form-group">
+        <label for="salary">Salary</label>
+        <input type="number" class="form-control" id="salary" name="Salary">
+    </div>
+    <div class="form-group">
+        <label for="birthdate">Birthdate</label>
+        <input type="date" id="birthdate" class="form-control" name="Birthdate">
+    </div>
+    <div class="form-group">
+        <label for="hireDate">HireDate</label>
+        <input type="date" id="hireDate" class="form-control" name="HireDate">
+    </div>
+    <div class="form-group">
+        <label for="typeId">Types</label>
+        <select class="form-control" id="typeId" name="Type.Id">
+            @foreach (var item in Model.EmployeeTypes)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+
+    <select class="form-control" id="statusId" name="Status.Id">
+        @foreach (var item in Model.EmployeeStatuses)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+
+    
+    
+    <button type="submit" class="btn btn-success"> Save</button>
+
+</form>
+
